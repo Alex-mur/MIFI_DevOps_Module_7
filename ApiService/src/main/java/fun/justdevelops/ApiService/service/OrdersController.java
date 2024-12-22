@@ -19,7 +19,7 @@ public class OrdersController {
     public static ArrayList<OrderModel> getUserOrders(@PathVariable int userId) {
         ArrayList<OrderModel> result = new ArrayList<>();
         try {
-            ManagedChannel channel = ManagedChannelBuilder.forAddress("order_service", 22285).usePlaintext().build();
+            ManagedChannel channel = ManagedChannelBuilder.forAddress("orderservice", 22285).usePlaintext().build();
             OrderServiceGrpc.OrderServiceBlockingStub stub = OrderServiceGrpc.newBlockingStub(channel);
             UserOrdersResponse response = stub.getUserOrders(UserOrdersRequest.newBuilder().setUserId(userId).build());
             response.getOrdersList().forEach(order -> result.add(

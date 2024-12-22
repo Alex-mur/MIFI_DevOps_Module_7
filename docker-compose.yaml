@@ -1,11 +1,11 @@
 version: '0.1'
 services:
-  api_service:
+  apiservice:
     build:
       context: ./ApiService
     ports:
       - "22280:22280"
-  order_service:
+  orderservice:
     build:
       context: ./OrderService
     ports:
