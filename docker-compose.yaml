@@ -1,16 +1,12 @@
 version: '0.1'
 services:
-  user_service:
+  api_service:
     build:
       context: ./ApiService
     ports:
       - "22280:22280"
-    extra_hosts:
-      - host.docker.internal:host-gateway
   order_service:
     build:
       context: ./OrderService
     ports:
       - "22285:22285"
-    extra_hosts:
-      - host.docker.internal:host-gateway
